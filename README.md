@@ -11,4 +11,4 @@
 
 4月13日
 ##更新用session存购物车，不登录可将书加入购物车;调整一些模块跳转的url问题;限制购物车品类最多五种
-
+ ![image](https://github.com/xloya/online-bookshop/blob/master/2019-04-18_200822.jpg)
