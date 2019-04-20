@@ -70,7 +70,7 @@
 		</table>
 		<div class="divForm">
 			<form id="form1" action="<c:url value='/BuyController'/>" method="post">
-				<input type="hidden" name="bookId" value="${book.id }">
+				<input id="bookid"type="hidden" name="bookId" value="${book.id }">
   				我要买：<input id="cnt" style="width: 40px;text-align: center;" type="text" name="quantity" value="1">件
   				<button id="btn" class="col-md-offset-2" ></button>
   			</form>
@@ -84,7 +84,9 @@
 		if(message == "overnum"){
 			%>
 	 			<script type="text/javascript">
+	 					var bookid = document.getElementById('bookid').value;
 						alert("购物车种类已达上限!最多添加5种!");
+						window.location.href="./showDetail?id="+bookid;
 				 </script>
 			<%
 		}

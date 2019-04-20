@@ -1,13 +1,12 @@
 package com.lxhf.controller;
 
-import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lxhf.bean.Customer;
@@ -38,10 +37,13 @@ public class RegistController {
 				String phonenum = request.getParameter("phonenum");
 				String email = request.getParameter("email");
 				String address = request.getParameter("address");
-				if(password!=""&&nickname!=""&&phonenum!=""&&email!=""&&address!=""&&(phonenum.length()==11)){
+				String validate = request.getParameter("validate");
+				String truevalidate = request.getParameter("truevalidate");
+				if(password!=""&&nickname!=""&&phonenum!=""&&email!=""&&address!=""&&(phonenum.length()==11)&&validate.equalsIgnoreCase(truevalidate)){
 					Customer customer1 = new Customer();
 					customer1.setUsername(username);
-					customer1.setPassword(password);
+					//md5加密
+					customer1.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
 					customer1.setNickname(nickname);
 					customer1.setPhonenum(phonenum);
 					customer1.setEmail(email);
@@ -54,7 +56,12 @@ public class RegistController {
 				else if(phonenum!=""&&(phonenum.length()!=11)) {
 					message = "phoneillegal";
 					request.setAttribute("message", message);
-				}else {
+				}
+				else if(password!=""&&nickname!=""&&phonenum!=""&&email!=""&&address!=""&&(phonenum.length()==11)&&!validate.equalsIgnoreCase(truevalidate)) {
+					message = "validateerror";
+					request.setAttribute("message", message);
+				}
+				else if(password==""||nickname==""||phonenum==""||email==""||address==""||validate==""){
 					message = "paranull";
 					request.setAttribute("message", message);
 				}

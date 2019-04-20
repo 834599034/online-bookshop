@@ -1,9 +1,8 @@
 package com.lxhf.bean;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
 
 
 
@@ -26,7 +25,7 @@ public class Car {
 	public float getTotalMoney() {
 		this.totalMoney = 0;
 		for (CarItem carItem : carItems) {
-			//µÃµ½Ã¿Ò»Ïî¶ÔÏó
+			//ï¿½Ãµï¿½Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
 			totalMoney += carItem.getMoney();
 		}
 		

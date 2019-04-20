@@ -95,7 +95,7 @@ $(function () {
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="${pageContext.request.contextPath }/manager"> <span
-				class="glyphicon glyphicon-th-large"></span>   当当书城后台管理
+				class="glyphicon glyphicon-th-large"></span>   丁丁书城后台管理
 			</a>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
