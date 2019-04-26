@@ -18,6 +18,4 @@
 
 
 
-=======
  ![image](https://github.com/xloya/online-bookshop/blob/master/2019-04-18_200822.jpg)
->>>>>>> 91e575efbb67c426bd60382416cef63af0ec838a
